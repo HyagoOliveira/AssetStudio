@@ -32,6 +32,7 @@
             this.Cancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.openAfterExport = new System.Windows.Forms.CheckBox();
+            this.renameModel = new System.Windows.Forms.CheckBox();
             this.restoreExtensionName = new System.Windows.Forms.CheckBox();
             this.assetGroupOptions = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -92,6 +93,7 @@
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.openAfterExport);
+            this.groupBox1.Controls.Add(this.renameModel);
             this.groupBox1.Controls.Add(this.restoreExtensionName);
             this.groupBox1.Controls.Add(this.assetGroupOptions);
             this.groupBox1.Controls.Add(this.label6);
@@ -116,6 +118,18 @@
             this.openAfterExport.TabIndex = 10;
             this.openAfterExport.Text = "Open folder after export";
             this.openAfterExport.UseVisualStyleBackColor = true;
+            // 
+            // renameModel
+            // 
+            this.renameModel.AutoSize = true;
+            this.renameModel.Checked = true;
+            this.renameModel.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.renameModel.Location = new System.Drawing.Point(6, 182);
+            this.renameModel.Name = "renameModel";
+            this.renameModel.Size = new System.Drawing.Size(168, 16);
+            this.renameModel.TabIndex = 10;
+            this.renameModel.Text = "Rename models when export";
+            this.renameModel.UseVisualStyleBackColor = true;
             // 
             // restoreExtensionName
             // 
@@ -512,5 +526,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox restoreExtensionName;
         private System.Windows.Forms.CheckBox openAfterExport;
+        private System.Windows.Forms.CheckBox renameModel;
     }
 }

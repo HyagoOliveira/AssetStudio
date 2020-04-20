@@ -21,10 +21,13 @@ namespace AssetStudio
         private Dictionary<uint, string> bonePathHash = new Dictionary<uint, string>();
         private Dictionary<Texture2D, string> textureNameDictionary = new Dictionary<Texture2D, string>();
         private Dictionary<Transform, ImportedFrame> transformDictionary = new Dictionary<Transform, ImportedFrame>();
+        private string gameObjectName;
         Dictionary<uint, string> morphChannelNames = new Dictionary<uint, string>();
 
         public ModelConverter(GameObject m_GameObject, AnimationClip[] animationList = null)
         {
+            gameObjectName = m_GameObject.m_Name ?? string.Empty;
+
             if (m_GameObject.m_Animator != null)
             {
                 InitWithAnimator(m_GameObject.m_Animator);
@@ -620,16 +623,35 @@ namespace AssetStudio
                 {
                     return iMat;
                 }
-                iMat = new ImportedMaterial();
-                iMat.Name = mat.m_Name;
+
+                string matName = mat.m_Name;                
+                /*
+                if (matName.Equals("OrangeCommonMetal")) matName = "armor";
+                else if (matName.Equals("OrangeCommonNon-metal")) matName = "skin";
+                else if (matName.Equals("No Name") || matName.Length == 0) matName = gameObjectName;
+                /*
+                else if (matName.Equals("Default") || matName.Equals("Default-Material")) matName = "";
+
+                matName = matName.Length > 0 ?
+                    (gameObjectName + "-" + matName).ToLower() :
+                    gameObjectName.ToLower();
+
+                matName = Microsoft.VisualBasic.Interaction.InputBox("Rename Material?", "New material name", matName);
+                */
+
                 //default values
-                iMat.Diffuse = new Color(0.8f, 0.8f, 0.8f, 1);
-                iMat.Ambient = new Color(0.2f, 0.2f, 0.2f, 1);
-                iMat.Emissive = new Color(0, 0, 0, 1);
-                iMat.Specular = new Color(0.2f, 0.2f, 0.2f, 1);
-                iMat.Reflection = new Color(0, 0, 0, 1);
-                iMat.Shininess = 20f;
-                iMat.Transparency = 0f;
+                iMat = new ImportedMaterial
+                {
+                    Name = matName,
+                    Diffuse = new Color(0.8f, 0.8f, 0.8f, 1),
+                    Ambient = new Color(0.2f, 0.2f, 0.2f, 1),
+                    Emissive = new Color(0, 0, 0, 1),
+                    Specular = new Color(0.2f, 0.2f, 0.2f, 1),
+                    Reflection = new Color(0, 0, 0, 1),
+                    Shininess = 20f,
+                    Transparency = 0f
+                };
+
                 foreach (var col in mat.m_SavedProperties.m_Colors)
                 {
                     switch (col.Key)

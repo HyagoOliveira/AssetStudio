@@ -33,6 +33,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadMMXDFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.extractFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -152,6 +153,7 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.loadMMXDFolder,
             this.loadFileToolStripMenuItem,
             this.loadFolderToolStripMenuItem,
             this.toolStripMenuItem1,
@@ -160,6 +162,13 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // loadMMXDFolder
+            // 
+            this.loadMMXDFolder.Name = "loadMMXDFolder";
+            this.loadMMXDFolder.Size = new System.Drawing.Size(154, 22);
+            this.loadMMXDFolder.Text = "Load MMXDiVE Folder";
+            this.loadMMXDFolder.Click += new System.EventHandler(this.loadMMXD_Click);
             // 
             // loadFileToolStripMenuItem
             // 
@@ -1004,6 +1013,7 @@
         private System.Windows.Forms.TextBox treeSearch;
         private System.Windows.Forms.TextBox listSearch;
         private System.Windows.Forms.ToolStripMenuItem loadFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadMMXDFolder;
         private System.Windows.Forms.ToolStripMenuItem loadFolderToolStripMenuItem;
         private System.Windows.Forms.ListView assetListView;
         private System.Windows.Forms.ColumnHeader columnHeaderName;

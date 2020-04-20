@@ -333,7 +333,9 @@ namespace AssetStudioGUI
 
         public static void ExportGameObject(GameObject gameObject, string exportPath, List<AssetItem> animationList = null)
         {
-            var convert = animationList != null ? new ModelConverter(gameObject, animationList.Select(x => (AnimationClip)x.Asset).ToArray()) : new ModelConverter(gameObject);
+            var convert = animationList != null ? 
+                new ModelConverter(gameObject, animationList.Select(x => (AnimationClip)x.Asset).ToArray()) : 
+                new ModelConverter(gameObject);
             exportPath = exportPath + Studio.FixFileName(gameObject.m_Name) + ".fbx";
             ExportFbx(convert, exportPath);
         }

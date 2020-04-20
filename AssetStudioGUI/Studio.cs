@@ -535,6 +535,7 @@ namespace AssetStudioGUI
                     Progress.Reset();
                     foreach (var gameObject in gameObjects)
                     {
+                        gameObject.m_Name = RenameGameObject(gameObject.m_Name);                        
                         StatusStripUpdate($"Exporting {gameObject.m_Name}");
                         try
                         {
@@ -559,6 +560,14 @@ namespace AssetStudioGUI
                     StatusStripUpdate("No Object can be exported.");
                 }
             });
+        }
+
+        private static string RenameGameObject(string name)
+        {
+            bool renameModel = Properties.Settings.Default.renameModel;
+            return renameModel ?
+                Microsoft.VisualBasic.Interaction.InputBox("Rename GameObject?", "New GameObject name", name) :
+                name;
         }
 
         public static void ExportObjectsMergeWithAnimationClip(string exportPath, List<GameObject> gameObjects, List<AssetItem> animationList = null)

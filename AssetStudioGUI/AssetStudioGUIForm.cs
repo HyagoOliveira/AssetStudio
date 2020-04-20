@@ -99,6 +99,14 @@ namespace AssetStudioGUI
             Progress.Default = new GUIProgress(SetProgressBarValue);
             Studio.StatusStripUpdate = StatusStripUpdate;
         }
+        
+        private async void loadMMXD_Click(object sender, EventArgs e)
+        {
+            string folderPath = @"C:\Users\Tapps\Downloads\MMXDiVE-Assets";
+            ResetForm();
+            await Task.Run(() => assetsManager.LoadFolder(folderPath));
+            BuildAssetStructures();
+        }
 
         private async void loadFile_Click(object sender, EventArgs e)
         {

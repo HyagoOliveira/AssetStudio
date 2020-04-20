@@ -29,6 +29,7 @@ namespace AssetStudioGUI
                 }
             }
             openAfterExport.Checked = Properties.Settings.Default.openAfterExport;
+            renameModel.Checked = Properties.Settings.Default.renameModel;
             eulerFilter.Checked = Properties.Settings.Default.eulerFilter;
             filterPrecision.Value = Properties.Settings.Default.filterPrecision;
             exportAllNodes.Checked = Properties.Settings.Default.exportAllNodes;
@@ -57,6 +58,7 @@ namespace AssetStudioGUI
                 }
             }
             Properties.Settings.Default.openAfterExport = openAfterExport.Checked;
+            Properties.Settings.Default.renameModel = renameModel.Checked;
             Properties.Settings.Default.eulerFilter = eulerFilter.Checked;
             Properties.Settings.Default.filterPrecision = filterPrecision.Value;
             Properties.Settings.Default.exportAllNodes = exportAllNodes.Checked;

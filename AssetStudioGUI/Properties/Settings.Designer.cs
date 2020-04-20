@@ -70,7 +70,22 @@ namespace AssetStudioGUI.Properties {
                 this["openAfterExport"] = value;
             }
         }
-        
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool renameModel
+        {
+            get
+            {
+                return ((bool)(this["renameModel"]));
+            }
+            set
+            {
+                this["renameModel"] = value;
+            }
+        }
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
